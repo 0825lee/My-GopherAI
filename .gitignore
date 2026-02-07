@@ -1,0 +1,23 @@
+# --- 后端相关 ---
+# 编译后的可执行文件
+GopherAI
+GopherAI.exe
+*.exe
+
+# 运行日志
+*.log
+
+# --- 前端相关 ---
+# 依赖包
+vue-frontend/node_modules/
+# 打包产物
+vue-frontend/dist/
+
+# --- 系统与 IDE ---
+.DS_Store
+.vscode/
+.idea/
+Thumbs.db
+
+# --- 本地配置（可选，如果你不想把邮箱密码传到 GitHub） ---
+config/config.toml
