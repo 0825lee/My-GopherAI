@@ -12,7 +12,7 @@ const (
 	UserNameMsg = "GopherAI的账号如下，请保留好，后续可以用账号/邮箱登录 "
 )
 
-func SendCaptcha(email, code, msg string) error {
+func SendCaptcha(email, code, msg string) error { //两次发送邮件的函数，第一次发送验证码，第二次发送账号
 	m := gomail.NewMessage()
 
 	// 发件人
@@ -22,13 +22,13 @@ func SendCaptcha(email, code, msg string) error {
 	// 主题
 	m.SetHeader("Subject", "来自GopherAI的信息")
 	// 正文内容（纯文本形式，也可以用 text/html）
-	m.SetBody("text/plain", msg+" "+code)
+	m.SetBody("text/plain", msg+" "+code) // 验证码邮件正文内容
 
 	// 配置 SMTP 服务器和授权码,587：是 SMTP 的明文/STARTTLS 端口号
 	d := gomail.NewDialer("smtp.qq.com", 587, config.GetConfig().EmailConfig.Email, config.GetConfig().EmailConfig.Authcode)
 
 	// 发送邮件
-	if err := d.DialAndSend(m); err != nil {
+	if err := d.DialAndSend(m); err != nil { // 发送失败
 		fmt.Printf("DialAndSend err %v:\n", err)
 		return err
 	}

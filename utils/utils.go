@@ -12,6 +12,7 @@ import (
 	"github.com/google/uuid"
 )
 
+// GetRandomNumbers 生成指定长度的随机数字字符串
 func GetRandomNumbers(num int) string {
 	r := rand.New(rand.NewSource(time.Now().UnixNano()))
 
@@ -31,6 +32,7 @@ func MD5(str string) string {
 	return hex.EncodeToString(m.Sum(nil))
 }
 
+// GenerateUUID 生成一个新的 UUID 字符串
 func GenerateUUID() string {
 	return uuid.New().String()
 }

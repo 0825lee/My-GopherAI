@@ -10,6 +10,8 @@ import (
 	"GopherAI/utils/myjwt"
 )
 
+// 这是登录函数，需要传入账号和密码，返回一个Token和状态码
+// 状态码是为了告诉前端登录是否成功
 func Login(username, password string) (string, code.Code) {
 	var userInformation *model.User
 	var ok bool
@@ -66,7 +68,7 @@ func Register(email, password, captcha string) (string, code.Code) {
 		return "", code.CodeServerBusy
 	}
 
-	return token, code.CodeSuccess
+	return token, code.CodeSuccess // 返回token和状态码
 }
 
 // 往指定邮箱发送验证码
